@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.token.server.mapper.ZnkfAliCallbackMapper">
+
+    <resultMap id="BaseResultMap" type="com.app.token.server.entity.ZnkfAliCallback">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="bucket_name" property="bucketName" />
+        <result column="report_time" property="reportTime" />
+        <result column="remark" property="remark" />
+        <result column="insert_time" property="insertTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, user_id, bucket_name, report_time,remark,insert_time
+    </sql>
+
+    <insert id="insertAliCallback">
+        INSERT INTO znkf_ali_callback (
+          user_id,
+          bucket_name,
+          report_time,
+          remark,
+          insert_time
+        ) VALUES (
+          #{userId},
+		  #{bucketName},
+		  #{reportTime},
+		  #{remark},
+          now()
+        )
+    </insert>
+</mapper>

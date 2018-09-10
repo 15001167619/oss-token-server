@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+
+spring:
+  profiles:
+    active: product
+
+---
+###################  aliToken配置  ###################
+alitoken:
+  accessKeyID:
+  accessKeySecret:
+  roleArn:
+  tokenExpireTime: 3600
+
+# MyBatis 配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.app.token.server.entity
+
+spring:
+  profiles: product
+  datasource:
+    url:
+    username:
+    password:
+    db-name:
+    filters: log4j,wall,mergeStat
+
+
+
+logging:
+  config: classpath:logback.xml
